@@ -1,12 +1,10 @@
-package org.and;
+package test;
 
 import org.and.data.mapper.UserMapper;
 import org.and.data.model.User;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.Ignore;
-import org.junit.Test;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,14 +15,12 @@ import java.io.Reader;
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by singltonmybatis
  *
  * @author xh.d
- * @since 2018/3/14 11:16
+ * @since 2018/3/14 12:47
  */
-@Ignore
 public class MyasTest {
-    @Test
-    public void myasConfigStartTest() throws Exception{
+    public static void main(String[] args) throws Exception {
         String path = System.getProperty("user.dir");
-        String filePath = path+File.separator+"target"+File.separator+"classes"+File.separator+"mybatis-config.xml";
+        String filePath = path+ File.separator+"target"+File.separator+"classes"+File.separator+"mybatis-config.xml";
         Reader reader = new InputStreamReader(new FileInputStream(filePath));
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession session = factory.openSession();

@@ -7,7 +7,10 @@
         <result property="name" column="name"/>
         <result property="pwd" column="pwd"/>
     </resultMap>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+    <sql id="Base_Column_List">
+        id, name, pwd
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
         SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE id=#{id}
     </select>
 </mapper>

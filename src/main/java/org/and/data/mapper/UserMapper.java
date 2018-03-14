@@ -9,5 +9,5 @@ import org.and.data.model.User;
  * @since 2018/3/14 11:14
  */
 public interface UserMapper {
-    User selectByPrimaryKey(String id);
+    User selectByPrimaryKey(Long id);
 }

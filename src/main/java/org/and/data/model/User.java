@@ -9,15 +9,15 @@ import java.io.Serializable;
  * @since 2018/3/14 11:04
  */
 public class User implements Serializable{
-    private String id;
+    private Long id;
     private String name;
     private String pwd;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
