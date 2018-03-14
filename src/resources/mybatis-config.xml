@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--environments 环境配置暂时不管-->
+    <!--<environments default="dev">
+        <environment id="dev">
+            <transactionManager type=""></transactionManager>
+            <dataSource type="">
+            </dataSource>
+        </environment>
+    </environments>-->
+    <objectFactory type="org.and.factory.DObjectFactory">
+    </objectFactory>
+    <!--配置类型转换器-->
+    <!--<typeHandlers>
+        <typeHandler handler=""></typeHandler>
+    </typeHandlers>-->
+    <!-- 配置model和mapper映射 -->
+    <mappers>
+        <mapper resource="classpath:mapper/UserMapper.xml"></mapper>
+    </mappers>
+</configuration>

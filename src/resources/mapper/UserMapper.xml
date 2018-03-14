@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.and.data.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="org.and.data.model.User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="pwd" column="pwd"/>
+    </resultMap>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE id=#{id}
+    </select>
+</mapper>
