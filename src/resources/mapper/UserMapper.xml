@@ -10,7 +10,14 @@
     <sql id="Base_Column_List">
         id, name, pwd
     </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
         SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE id=#{id}
+    </select>
+
+    <select id="selectByNameAndPwd" resultMap="BaseResultMap" >
+        SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE name=#{0} and pwd = #{1}
+    </select>
+    <select id="selectByNameAndPwd1" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+        SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE name=#{x_name} and pwd = #{x_pwd}
     </select>
 </mapper>
