@@ -4,15 +4,24 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <typeAliases>
+        <typeAlias type="C3P0DataSourceFactory" alias="D3P0"></typeAlias>
+    </typeAliases>
     <!--environments 环境配置暂时不管-->
     <environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"></transactionManager>
-            <dataSource type="POOLED">
+            <!--<dataSource type="POOLED">
                 <property name="url" value="jdbc:mysql://127.0.0.1:3306/jdbct"></property>
                 <property name="username" value="root"></property>
                 <property name="password" value="anan1215"></property>
                 <property name="driver" value="com.mysql.jdbc.Driver"></property>
+            </dataSource>-->
+            <dataSource type="D3P0">
+                <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/jdbct"></property>
+                <property name="user" value="root"></property>
+                <property name="password" value="anan1215"></property>
+                <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
             </dataSource>
         </environment>
     </environments>
