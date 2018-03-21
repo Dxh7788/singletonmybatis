@@ -2,20 +2,17 @@ package test;
 
 import org.and.data.mapper.UserMapper;
 import org.and.data.model.User;
-import org.apache.ibatis.mapping.MappedStatement;
-import org.apache.ibatis.mapping.ResultMap;
-import org.apache.ibatis.mapping.ResultMapping;
-import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.apache.ibatis.type.TypeAliasRegistry;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by singltonmybatis
@@ -32,7 +29,7 @@ public class MyasTest {
         /**
          * 查看已经加载的配置
          * */
-        List<ResultMap> resultMaps= new ArrayList<ResultMap>();
+        /*List<ResultMap> resultMaps= new ArrayList<ResultMap>();
         resultMaps.addAll(factory.getConfiguration().getResultMaps());
         System.out.println("找到"+resultMaps.size()+"条ResultMap记录");
         for (ResultMap rm: resultMaps) {
@@ -47,11 +44,11 @@ public class MyasTest {
                 System.out.println(idrmg.getColumn()+" "+idrmg.getProperty()+" "+idrmg.getJavaType());
             }
             System.out.println(rm.getId());
-        }
-        /**
+        }*/
+        /*
          * 找到所有的注册类型
          * */
-        TypeAliasRegistry typeAliasRegistry = new TypeAliasRegistry();
+        /*TypeAliasRegistry typeAliasRegistry = new TypeAliasRegistry();
         Configuration configuration = factory.getConfiguration();
         Map<String,Class<?>> maps = typeAliasRegistry.getTypeAliases();
         Map<String,Class<?>> maps0 = new HashMap<String, Class<?>>();
@@ -68,11 +65,12 @@ public class MyasTest {
         Collection<MappedStatement> mappedStatements =configuration.getMappedStatements();
         for (MappedStatement ms :mappedStatements){
             System.out.println(ms.getId());
-        }
+        }*/
         SqlSession session = factory.openSession();
+        //userMapper是通过java反射生成的实例,通过代理工厂MapperProxyFactory生成MapperProxy实例,让后MapperProxy实例调用mapper.
         UserMapper userMapper = session.getMapper(UserMapper.class);
-        User user = userMapper.selectByPrimaryKey(1L);
-        System.out.println(user.getId()+user.getName()+user.getPwd());
+        /*User user = userMapper.selectByPrimaryKey(1L);
+        System.out.println(user.getId()+user.getName()+user.getPwd());*/
         Map<String,String> map = new HashMap<String, String>();
         map.put("x_name","123");
         map.put("x_pwd","23");
