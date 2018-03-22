@@ -30,9 +30,8 @@ public class DReflectorTest {
         MetaObject mo = configuration.newMetaObject(user);
         Reflector rf=mo.getReflectorFactory().findForClass(User.class);
         try {
-            //首先创建一个对象
-            rf.getSetInvoker("name").invoke(user,new Object[]{new String("123")});
-            System.out.println(rf.getGetInvoker("name").invoke(user,null));
+            mo.setValue("id","123");
+            System.out.println(rf.getGetInvoker("id").invoke(user,null));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {

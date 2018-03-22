@@ -14,7 +14,7 @@
         SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE id=#{id}
     </select>
 
-    <select id="selectByNameAndPwd" resultMap="BaseResultMap" >
+    <select id="selectByNameAndPwd" resultMap="BaseResultMap">
         SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE name=#{0} and pwd = #{1}
     </select>
     <select id="selectByNameAndPwd1" resultMap="BaseResultMap" parameterType="java.util.HashMap">
