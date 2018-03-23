@@ -43,11 +43,7 @@ public class RedisCache implements Cache {
     public Object getObject(Object key) {
         Gson gson = new Gson();
         String serializeKey = gson.toJson(key);
-        Object o = jedis.get(serializeKey);
-        if (null!=o) {
-            System.out.println("从缓存获取成功");
-        }
-        return o;
+        return jedis.get(serializeKey);
     }
 
     public Object removeObject(Object key) {
