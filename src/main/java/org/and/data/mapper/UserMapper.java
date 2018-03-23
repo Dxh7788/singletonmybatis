@@ -1,9 +1,7 @@
 package org.and.data.mapper;
 
 import org.and.data.model.User;
-import org.apache.ibatis.session.RowBounds;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,5 +14,5 @@ import java.util.Map;
 public interface UserMapper {
     User selectByPrimaryKey(Long id);
     List<User> selectByNameAndPwd(String name, String pwd);
-    List<User> selectByNameAndPwd1(Map<String,String> map, RowBounds sql);
+    List<User> selectByNameAndPwd1(Map<String, String> map);
 }

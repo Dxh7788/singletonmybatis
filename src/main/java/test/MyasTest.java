@@ -2,7 +2,6 @@ package test;
 
 import org.and.data.mapper.UserMapper;
 import org.and.data.model.User;
-import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -75,8 +74,14 @@ public class MyasTest {
         Map<String,String> map = new HashMap<String, String>();
         map.put("x_name","123");
         map.put("x_pwd","23");
-        List<User> users = userMapper.selectByNameAndPwd1(map, new RowBounds(0,2));
+        List<User> users = userMapper.selectByNameAndPwd1(map);
         for (User u:users){
+            System.out.println(u.getName()+":"+u.getPwd());
+        }
+        //开启事务,调用缓存
+        session.commit();
+        List<User> users0 = userMapper.selectByNameAndPwd1(map);
+        for (User u:users0){
             System.out.println(u.getName()+":"+u.getPwd());
         }
     }
