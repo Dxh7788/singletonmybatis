@@ -3,7 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.and.data.mapper.UserMapper">
     <!-- 配置自定义缓存 -->
-    <cache type="org.and.cache.RedisCache" eviction="LRU" size="1024"/>
     <resultMap id="BaseResultMap" type="org.and.data.model.User">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
@@ -20,7 +19,7 @@
         SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE name=#{0} and pwd = #{1}
     </select>
     <!-- 使用缓存 -->
-    <select id="selectByNameAndPwd1" resultMap="BaseResultMap" parameterType="java.util.HashMap" useCache="true">
+    <select id="selectByNameAndPwd1" resultMap="BaseResultMap" parameterType="java.util.HashMap">
         SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE name=#{x_name} and pwd = #{x_pwd}
     </select>
 </mapper>
