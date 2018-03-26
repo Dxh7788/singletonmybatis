@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -84,5 +85,18 @@ public class MyasTest {
         for (User u:users0){
             System.out.println(u.getName()+":"+u.getPwd());
         }
+
+        User u0 = new User();
+        u0.setName("sd0");
+        u0.setPwd("dd0");
+        User u1 = new User();
+        u1.setName("sd0");
+        u1.setPwd("dd0");
+
+        List<User> users1 = new ArrayList<User>(0);
+        users1.add(u0);
+        users1.add(u1);
+
+        userMapper.addAll(users1);
     }
 }

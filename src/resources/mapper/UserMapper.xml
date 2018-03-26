@@ -22,4 +22,10 @@
     <select id="selectByNameAndPwd1" resultMap="BaseResultMap" parameterType="java.util.HashMap">
         SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE name=#{x_name} and pwd = #{x_pwd}
     </select>
+    <insert id="addAll" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+        INSERT INTO USER(name,pwd) VALUES
+        <foreach collection="users" item="user" index="index" separator=",">
+            (#{user.name},#{user.pwd})
+        </foreach>
+    </insert>
 </mapper>

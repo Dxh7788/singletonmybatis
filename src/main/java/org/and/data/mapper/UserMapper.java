@@ -4,8 +4,7 @@ import org.and.cache.RedisCache;
 import org.and.data.model.User;
 import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.cache.decorators.LruCache;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -22,4 +21,5 @@ public interface UserMapper {
     List<User> selectByNameAndPwd(String name, String pwd);
     @Options()
     List<User> selectByNameAndPwd1(Map<String, String> map);
+    void addAll(@Param("users") List<User> users);
 }
