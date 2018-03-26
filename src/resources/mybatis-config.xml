@@ -6,6 +6,7 @@
     <!-- 开始缓存 -->
     <settings>
         <setting name="cacheEnabled" value="true"/>
+        <setting name="useGeneratedKeys" value="true"/>
     </settings>
     <!--environments 环境配置暂时不管-->
     <environments default="dev">
