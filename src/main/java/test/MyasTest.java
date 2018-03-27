@@ -115,5 +115,16 @@ public class MyasTest {
             }
             System.out.println(u.getName()+":"+u.getPwd());
         }
+
+        List<User> users1 = userMapper.getUsers();
+        for (User uo:users1){
+            List<Address> addresses = uo.getAddresses();
+            System.out.println("----------------------");
+            for (Address address:addresses){
+                System.out.println(address.getId()+":"+address.getName());
+            }
+            System.out.println(uo.getName()+":"+uo.getPwd());
+            System.out.println("----------------------");
+        }
     }
 }

@@ -1,6 +1,7 @@
 package org.and.data.mapper;
 
 import org.and.cache.RedisCache;
+import org.and.data.model.Address;
 import org.and.data.model.User;
 import org.apache.ibatis.annotations.*;
 
@@ -33,4 +34,6 @@ public interface UserMapper {
     List<User> selectByInstance2(@Param("user") User user);
 
     List<User> associationQueryA();
+    List<User> getUsers();
+    List<Address> getAddresses();
 }
