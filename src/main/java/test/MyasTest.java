@@ -72,7 +72,7 @@ public class MyasTest {
         UserMapper userMapper = session.getMapper(UserMapper.class);
         /*User user = userMapper.selectByPrimaryKey(1L);
         System.out.println(user.getId()+user.getName()+user.getPwd());*/
-        Map<String,String> map = new HashMap<String, String>();
+        /*Map<String,String> map = new HashMap<String, String>();
         map.put("x_name","123");
         map.put("x_pwd","23");
         List<User> users = userMapper.selectByNameAndPwd1(map);
@@ -97,6 +97,13 @@ public class MyasTest {
         users1.add(u0);
         users1.add(u1);
 
-        userMapper.addAll(users1);
+        userMapper.addAll(users1);*/
+        User u0 = new User();
+        u0.setName("123");
+        u0.setPwd("23");
+        List<User> users = userMapper.selectByInstance(u0);
+        for (User u:users){
+            System.out.println(u.getName()+":"+u.getPwd());
+        }
     }
 }
