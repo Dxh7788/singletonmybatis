@@ -2,9 +2,7 @@ package org.and.data.mapper;
 
 import org.and.cache.RedisCache;
 import org.and.data.model.User;
-import org.apache.ibatis.annotations.CacheNamespace;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;
@@ -24,4 +22,13 @@ public interface UserMapper {
     void addAll(@Param("users") List<User> users);
 
     List<User> selectByInstance(@Param("user") User user);
+
+    @Results(id = "BaseAnResultMap",value = {
+        @Result(property = "id",column = "id",id = true),
+        @Result(property = "name",column = "name"),
+        @Result(property = "pwd",column = "pwd")
+    }
+    )
+    @SelectProvider( type = SelectProviderCandicate.class,method = "selectSql")
+    List<User> selectByInstance2(@Param("user") User user);
 }

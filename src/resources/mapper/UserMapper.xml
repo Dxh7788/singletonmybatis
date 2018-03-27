@@ -30,6 +30,6 @@
         </foreach>
     </insert>-->
     <select id="selectByInstance" parameterType="org.and.data.model.User" resultMap="BaseResultMap">
-        SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE name=#{user.name} and pwd = #{user.pwd}
+      SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE name=#{user.name} and pwd = #{user.pwd}
     </select>
 </mapper>
