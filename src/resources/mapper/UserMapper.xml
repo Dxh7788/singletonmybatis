@@ -7,7 +7,7 @@
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="pwd" column="pwd"/>
-        <collection property="addresses" columnPrefix="address_" ofType="org.and.data.model.Address" column="id" javaType="org.and.data.model.Address">
+        <collection property="addresses" columnPrefix="address_" ofType="org.and.data.model.Address" column="id">
             <id property="id" column="id"/>
             <result property="name" column="name"/>
             <result property="userId" column="user_id"/>
