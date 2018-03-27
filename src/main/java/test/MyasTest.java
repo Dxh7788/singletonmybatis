@@ -1,6 +1,7 @@
 package test;
 
 import org.and.data.mapper.UserMapper;
+import org.and.data.model.Address;
 import org.and.data.model.User;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -103,6 +104,15 @@ public class MyasTest {
         u0.setPwd("23");
         List<User> users = userMapper.selectByInstance(u0);
         for (User u:users){
+            System.out.println(u.getName()+":"+u.getPwd());
+        }
+
+        List<User> users0 = userMapper.associationQueryA();
+        for (User u:users0){
+            List<Address> addresses = u.getAddresses();
+            for (Address address:addresses){
+                System.out.println(address.getId()+":"+address.getName());
+            }
             System.out.println(u.getName()+":"+u.getPwd());
         }
     }

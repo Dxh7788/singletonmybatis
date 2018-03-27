@@ -1,20 +1,18 @@
 package org.and.data.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by singltonmybatis
  *
  * @author xh.d
- * @since 2018/3/14 11:04
+ * @since 2018/3/27 16:33
  */
-public class User implements Serializable{
+public class Address implements Serializable {
+    private static final long serialVersionUID = 8150827221818449779L;
     private Long id;
     private String name;
-    private String pwd;
-    private List<Address> addresses = new ArrayList<Address>(0);
+    private Long userId;
 
     public Long getId() {
         return id;
@@ -32,19 +30,19 @@ public class User implements Serializable{
         this.name = name;
     }
 
-    public String getPwd() {
-        return pwd;
+    public Address() {
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public Address(Long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
-    public List<Address> getAddresses() {
-        return addresses;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

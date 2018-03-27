@@ -31,4 +31,6 @@ public interface UserMapper {
     )
     @SelectProvider( type = SelectProviderCandicate.class,method = "selectSql")
     List<User> selectByInstance2(@Param("user") User user);
+
+    List<User> associationQueryA();
 }
