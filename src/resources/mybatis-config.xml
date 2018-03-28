@@ -3,10 +3,19 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
+    <!-- 开始缓存 -->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="useGeneratedKeys" value="true"/>
+        <setting name="logImpl" value="SLF4J"/>
+    </settings>
     <typeAliases>
         <typeAlias type="C3P0DataSourceFactory" alias="D3P0"></typeAlias>
     </typeAliases>
+    <!-- 配置插件 -->
+    <!--<plugins>
+        <plugin interceptor="org.and.interceptor.MyInterceptor"></plugin>
+    </plugins>-->
     <!--environments 环境配置暂时不管-->
     <environments default="dev">
         <environment id="dev">
