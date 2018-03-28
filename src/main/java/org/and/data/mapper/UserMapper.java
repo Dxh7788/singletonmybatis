@@ -31,6 +31,7 @@ public interface UserMapper {
         @Result(property = "pwd",column = "pwd")
     }
     )
+
     @SelectProvider( type = SelectProviderCandicate.class,method = "selectSql")
     List<User> selectByInstance2(@Param("user") User user);
 
