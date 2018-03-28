@@ -22,6 +22,7 @@ public interface UserMapper {
     List<User> selectByNameAndPwd1(Map<String, String> map);
     void addAll(@Param("users") List<User> users);
 
+
     List<User> selectByInstance(@Param("user") User user);
 
     @Results(id = "BaseAnResultMap",value = {
