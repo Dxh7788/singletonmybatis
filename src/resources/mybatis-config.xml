@@ -8,6 +8,10 @@
         <setting name="cacheEnabled" value="true"/>
         <setting name="useGeneratedKeys" value="true"/>
     </settings>
+    <!-- 配置插件 -->
+    <!--<plugins>
+        <plugin interceptor="org.and.interceptor.MyInterceptor"></plugin>
+    </plugins>-->
     <!--environments 环境配置暂时不管-->
     <environments default="dev">
         <environment id="dev">
