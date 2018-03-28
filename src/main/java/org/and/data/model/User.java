@@ -1,8 +1,6 @@
 package org.and.data.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by singltonmybatis
@@ -14,7 +12,6 @@ public class User implements Serializable{
     private Long id;
     private String name;
     private String pwd;
-    private List<Address> addresses = new ArrayList<Address>(0);
 
     public Long getId() {
         return id;
@@ -38,13 +35,5 @@ public class User implements Serializable{
 
     public void setPwd(String pwd) {
         this.pwd = pwd;
-    }
-
-    public List<Address> getAddresses() {
-        return addresses;
-    }
-
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
     }
 }
