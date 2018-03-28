@@ -1,6 +1,7 @@
 package test;
 
 import org.and.data.mapper.UserMapper;
+import org.and.data.model.Address;
 import org.and.data.model.User;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,6 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,12 +73,58 @@ public class MyasTest {
         UserMapper userMapper = session.getMapper(UserMapper.class);
         /*User user = userMapper.selectByPrimaryKey(1L);
         System.out.println(user.getId()+user.getName()+user.getPwd());*/
-        Map<String,String> map = new HashMap<String, String>();
+        /*Map<String,String> map = new HashMap<String, String>();
         map.put("x_name","123");
         map.put("x_pwd","23");
         List<User> users = userMapper.selectByNameAndPwd1(map);
         for (User u:users){
             System.out.println(u.getName()+":"+u.getPwd());
+        }
+        //开启事务,调用缓存
+        session.commit();
+        List<User> users0 = userMapper.selectByNameAndPwd1(map);
+        for (User u:users0){
+            System.out.println(u.getName()+":"+u.getPwd());
+        }
+
+        User u0 = new User();
+        u0.setName("sd0");
+        u0.setPwd("dd0");
+        User u1 = new User();
+        u1.setName("sd0");
+        u1.setPwd("dd0");
+
+        List<User> users1 = new ArrayList<User>(0);
+        users1.add(u0);
+        users1.add(u1);
+
+        userMapper.addAll(users1);*/
+        User u0 = new User();
+        u0.setName("123");
+        u0.setPwd("23");
+        List<User> users = userMapper.selectByInstance(u0);
+        for (User u:users){
+            System.out.println(u.getName()+":"+u.getPwd());
+        }
+
+        List<User> users0 = userMapper.associationQueryA();
+        for (User u:users0){
+            List<Address> addresses = u.getAddresses();
+            for (Address address:addresses){
+                System.out.println(address.getId()+":"+address.getName());
+            }
+            System.out.println(u.getName()+":"+u.getPwd());
+        }
+
+        List<User> users1 = userMapper.getUsers();
+        for (User uo:users1){
+            List<Address> addresses = uo.getAddresses();
+            System.out.println("----------------------");
+            for (Address address:addresses){
+                System.out.println(address.getId()+":"+address.getName());
+            }
+            System.out.println(uo.getName()+":"+uo.getPwd());
+            System.out.println("----------------------");
         }
     }
 }
