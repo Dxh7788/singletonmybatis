@@ -7,6 +7,7 @@
     <settings>
         <setting name="cacheEnabled" value="true"/>
         <setting name="useGeneratedKeys" value="true"/>
+        <setting name="logImpl" value="SLF4J"/>
     </settings>
     <!-- 配置插件 -->
     <!--<plugins>
