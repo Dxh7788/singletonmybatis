@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<encache>
+    <diskStore path="java.io.tempdir" />
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            overflowToDisk="true"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="300"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120" />
+
+    <cache name="org.mybatis.caches.ehcache.EhcacheCache"
+           maxElementsInMemory="5000"
+           eternal="true"
+           timeToIdleSeconds="0"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+    />
+</encache>
