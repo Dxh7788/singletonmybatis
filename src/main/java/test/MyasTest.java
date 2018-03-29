@@ -1,8 +1,11 @@
 package test;
 
+import org.and.cache.RedisCache;
 import org.and.data.mapper.UserMapper;
 import org.and.data.model.Address;
 import org.and.data.model.User;
+import org.apache.ibatis.cache.Cache;
+import org.apache.ibatis.cache.decorators.LoggingCache;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -77,6 +80,8 @@ public class MyasTest {
         map.put("x_name","123");
         map.put("x_pwd","23");
         List<User> users = userMapper.selectByNameAndPwd1(map);
+        //验证一级缓存
+        /*List<User> users0 = userMapper.selectByNameAndPwd1(map);*/
         for (User u:users){
             System.out.println(u.getName()+":"+u.getPwd());
         }
@@ -126,5 +131,9 @@ public class MyasTest {
             System.out.println(uo.getName()+":"+uo.getPwd());
             System.out.println("----------------------");
         }*/
+
+        Cache cache = new RedisCache();
+        boolean isSign = LoggingCache.class.isAssignableFrom(RedisCache.class);
+        System.out.println(isSign);
     }
 }
