@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.and.data.mapper.UserMapper">
+    <!--<cache type="org.and.cache.RedisCache"></cache>-->
     <!-- 配置自定义缓存 -->
     <resultMap id="BaseResultMap" type="org.and.data.model.User">
         <id property="id" column="id"/>
@@ -34,17 +35,17 @@
 
     <select id="selectByNameAndPwd" resultMap="BaseResultMap">
         SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE name=#{0} and pwd = #{1}
-    </select>
-    &lt;!&ndash; 使用缓存 &ndash;&gt;
-    <select id="selectByNameAndPwd1" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+    </select>-->
+    <!-- 使用缓存 -->
+    <select id="selectByNameAndPwd1" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
         SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE name=#{x_name} and pwd = #{x_pwd}
     </select>
-    <insert id="addAll" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+    <!--<insert id="addAll" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
         INSERT INTO USER(name,pwd) VALUES
         <foreach collection="users" item="user" index="index" separator=",">
             (#{user.name},#{user.pwd})
         </foreach>
-    </insert>-->
+    </insert>
     <select id="selectByInstance" parameterType="org.and.data.model.User" resultMap="BaseResultMap">
       SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE name=#{user.name} and pwd = #{user.pwd}
     </select>
@@ -56,5 +57,5 @@
     </select>
     <select id="getUsers" resultMap="BaseResultMap2" parameterType="org.and.data.model.User">
         SELECT u.id, u.name, u.pwd FROM USER u
-    </select>
+    </select>-->
 </mapper>

@@ -29,7 +29,7 @@ public class MyasTest {
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession session = factory.openSession();
         UserMapper userMapper = session.getMapper(UserMapper.class);
-        User user = userMapper.selectByPrimaryKey(1L);
-        System.out.println(user.getId()+user.getName()+user.getPwd());
+        /*User user = userMapper.selectByPrimaryKey(1L);
+        System.out.println(user.getId()+user.getName()+user.getPwd());*/
     }
 }
