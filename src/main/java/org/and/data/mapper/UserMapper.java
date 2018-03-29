@@ -1,6 +1,7 @@
 package org.and.data.mapper;
 
 import org.and.data.model.User;
+import org.apache.ibatis.annotations.CacheNamespaceRef;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +12,7 @@ import java.util.Map;
  * @author xh.d
  * @since 2018/3/14 11:14
  */
-/*@CacheNamespace(implementation = RedisCache.class)*/
+@CacheNamespaceRef(value = org.and.data.mapper.UserMapper.class)
 public interface UserMapper {
     /*User selectByPrimaryKey(Long id);
     List<User> selectByNameAndPwd(String name, String pwd);*/
