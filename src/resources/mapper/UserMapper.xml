@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.and.data.mapper.UserMapper">
-    <cache type="org.and.cache.RedisCache" size="512" eviction="FIFO"></cache>
+    <!--<cache type="org.and.cache.RedisCache" size="512" eviction="FIFO"></cache>-->
     <!-- 配置自定义缓存 -->
     <resultMap id="BaseResultMap" type="org.and.data.model.User">
         <id property="id" column="id"/>
@@ -58,4 +58,7 @@
     <select id="getUsers" resultMap="BaseResultMap2" parameterType="org.and.data.model.User">
         SELECT u.id, u.name, u.pwd FROM USER u
     </select>-->
+    <insert id="insert" parameterType="org.and.data.model.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user (name,pwd) VALUES (#{name},#{pwd})
+    </insert>
 </mapper>

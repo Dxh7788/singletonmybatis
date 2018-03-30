@@ -2,6 +2,7 @@ package org.and.data.mapper;
 
 import org.and.data.model.User;
 import org.apache.ibatis.annotations.CacheNamespaceRef;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.Map;
  * @author xh.d
  * @since 2018/3/14 11:14
  */
-@CacheNamespaceRef(value = org.and.data.mapper.UserMapper.class)
+/*@CacheNamespaceRef(value = org.and.data.mapper.UserMapper.class)*/
 public interface UserMapper {
     /*User selectByPrimaryKey(Long id);
     List<User> selectByNameAndPwd(String name, String pwd);*/
@@ -37,4 +38,6 @@ public interface UserMapper {
     List<User> associationQueryA();
     List<User> getUsers();
     List<Address> getAddresses();*/
+    //返回值是插入的条数
+    int insert(User user);
 }

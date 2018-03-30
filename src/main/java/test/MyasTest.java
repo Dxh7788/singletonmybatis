@@ -132,6 +132,31 @@ public class MyasTest {
             System.out.println("----------------------");
         }*/
 
+        /*User u0 = new User();
+        u0.setName("sd0");
+        u0.setPwd("dd0");
+        //默认autoCommit是false,需要手动提交,如果没有session.commit()则数据库不会插入数据.
+        userMapper.insert(u0);
+        System.out.println(u0.getId());
+        User u1 = new User();
+        u1.setName("sd0");
+        u1.setPwd("dd0");
+        userMapper.insert(u1);
+        System.out.println(u1.getId());
+        //默认autoCommit是false,需要手动提交,如果没有session.commit()则数据库不会插入数据.
+        User u2 = new User();
+        u2.setName("sd0");
+        u2.setPwd("dd0");
+        //默认autoCommit是false,需要手动提交,如果没有session.commit()则数据库不会插入数据.
+        int id = userMapper.insert(u2);
+        System.out.println(u2.getId());
+        //session.commit()后数据库才会有数
+        System.out.println(u0.getId());
+        System.out.println(u1.getId());
+        System.out.println(u2.getId());
+        session.commit();
+        session.close();
+        System.out.println(id);*/
         Cache cache = new RedisCache();
         boolean isSign = LoggingCache.class.isAssignableFrom(RedisCache.class);
         System.out.println(isSign);
