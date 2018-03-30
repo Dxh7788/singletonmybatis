@@ -81,17 +81,26 @@ public class MyasTest {
         map.put("x_pwd","23");
         List<User> users = userMapper.selectByNameAndPwd1(map);
         //验证一级缓存
-        /*List<User> users0 = userMapper.selectByNameAndPwd1(map);*/
+        List<User> users0 = userMapper.selectByNameAndPwd1(map);
         for (User u:users){
             System.out.println(u.getName()+":"+u.getPwd());
         }
         //开启事务,调用缓存
         session.commit();
-        List<User> users0 = userMapper.selectByNameAndPwd1(map);
-        for (User u:users0){
+        //事务提交后,本地缓存清空
+        List<User> users1 = userMapper.selectByNameAndPwd1(map);
+        for (User u:users1){
             System.out.println(u.getName()+":"+u.getPwd());
         }
+        /*List<User> users0 = userMapper.selectByNameAndPwd1(map);
+        for (User u:users0){
+            System.out.println(u.getName()+":"+u.getPwd());
+        }*/
 
+        /*User u = new User();
+        u.setId(1L);
+        User u2 = userMapper.selectByPrimaryKey(u);
+        System.out.println(u2.getId()+u2.getName());*/
        /* User u0 = new User();
         u0.setName("sd0");
         u0.setPwd("dd0");

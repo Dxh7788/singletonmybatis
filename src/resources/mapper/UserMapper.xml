@@ -29,6 +29,9 @@
     <sql id="Base_Column_List">
         id, name, pwd
     </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE id=#{id}
+    </select>
     <!--<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
         SELECT DISTINCT <include refid="Base_Column_List"/> FROM USER WHERE id=#{id}
     </select>

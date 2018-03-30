@@ -15,6 +15,7 @@ import java.util.Map;
  */
 /*@CacheNamespaceRef(value = org.and.data.mapper.UserMapper.class)*/
 public interface UserMapper {
+    User selectByPrimaryKey(User user);
     /*User selectByPrimaryKey(Long id);
     List<User> selectByNameAndPwd(String name, String pwd);*/
     /*@Select("SELECT DISTINCT id, name, pwd FROM USER WHERE name=#{x_name} and pwd = #{x_pwd}")*/
