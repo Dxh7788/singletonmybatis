@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 开始缓存 -->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="useGeneratedKeys" value="true"/>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!-- 设置自定义的Executor插件 -->
+    <!--<typeAliases>
+        <typeAlias type="org.and.data.executor.DseExecutor" alias="DSE"/>
+    </typeAliases>-->
+    <!-- 配置插件,自定义的Executor -->
+    <!--<plugins>
+        <plugin interceptor="org.and.data.executor.DseExecutor"></plugin>
+    </plugins>-->
+    <!--environments 环境配置暂时不管-->
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/jdbct"></property>
+                <property name="username" value="root"></property>
+                <property name="password" value="anan1215"></property>
+                <property name="driver" value="com.mysql.jdbc.Driver"></property>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--配置类型转换器-->
+    <!--<typeHandlers>
+        <typeHandler handler=""></typeHandler>
+    </typeHandlers>-->
+    <!-- 配置model和mapper映射 -->
+</configuration>
